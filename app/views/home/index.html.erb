@@ -1,0 +1,34 @@
+<% if signed_in? %>
+  <div class="row">
+    <aside class="col-xs-4 col-sm-4 col-md-4">      
+      <%= render 'shared/user_info' %>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <aside class="col-xs-8 col-sm-8 col-md-8">
+      <% if @feed_items.any? %>
+        <ol class="microposts">
+          <%= render partial: 'shared/feed_item', collection: @feed_items %>
+        </ol>
+        <%= paginate @feed_items %>
+      <% end %>
+    </aside>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+      This is the home page for the
+      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
