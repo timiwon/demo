@@ -46,3 +46,6 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'kaminari'
 gem 'faker'
+
+gem 'rails_12factor', group: :production
+ruby '2.0.0p481'
